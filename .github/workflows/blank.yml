@@ -1,0 +1,246 @@
+local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+    Title = "准备脚本",
+    Text = "正在加载（反挂机已开启）",
+    Duration = 5, 
+})
+print("反挂机开启")
+		local vu = game:GetService("VirtualUser")
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		   wait(1)
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)
+local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/dUiCrXYP"))()
+local Window = OrionLib:MakeWindow({Name = "卡卡大蛇脚本", HidePremium = false, SaveConfig = true,IntroText = "欢迎使用卡卡大蛇脚本", ConfigFolder = "欢迎使用卡卡大蛇脚本"})
+local about = Window:MakeTab({
+    Name = "卡卡大蛇脚本",
+    Icon = "rbxassetid://93566402708060",
+    PremiumOnly = false
+})
+
+about:AddParagraph("您的用户名:"," "..game.Players.LocalPlayer.Name.."")
+about:AddParagraph("您的注入器:"," "..identifyexecutor().."")
+about:AddParagraph("您当前服务器的ID"," "..game.GameId.."")
+
+local Tab = Window:MakeTab({
+	Name = "有话说",
+	Icon = "rbxassetid://93566402708060",
+	PremiumOnly = false
+})
+
+local Tab = Window:MakeTab({
+	Name = "脚本",
+	Icon = "rbxassetid://93566402708060",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "功能"
+})
+
+Tab:AddButton({
+	Name = "水下世界支持很多游戏_名单已被破除",
+	Callback = function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/jiankeQWQ/Fish/main/sx')))()
+    end
+})
+
+Tab:AddButton({
+    Name = "卡卡大蛇",
+    Callback = function()
+   jianke_V3 = "作者_卡卡 = "本人QQ2528932281"loadstring(game:HttpGet(('https://raw.githubusercontent.com/jiankeQWQ/jiankeV3/main/jianke_V3')))()
+    end
+})
+
+local Tab = Window:MakeTab({
+	Name = "🏀通用功能🏀",
+	Icon = "rbxassetid://93566402708060",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Synapse X",
+	Callback = function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/tWGxhNq0"))()
+  	end    
+})
+
+Tab:AddButton({
+    Name = "偷别人物品栏",
+    Callback = function()
+          --Copy And Paste:
+    for i,v in pairs (game.Players:GetChildren()) do
+    wait()
+    for i,b in pairs (v.Backpack:GetChildren()) do
+    b.Parent = game.Players.LocalPlayer.       Backpack
+    end
+    end
+      end
+})
+
+Tab:AddButton({
+	Name = "伪名说话",
+	Callback = function()
+loadstring(game:HttpGet(('https://pastefy.ga/zCFEwaYq/raw'),true))()
+	end 
+})
+
+Tab:AddButton({
+  Name = "HUA 光影",
+  Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/arzRCgwS"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "光影_2",
+  Default = false,
+  Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
+  end
+})
+
+Tab:AddButton({
+	Name = "超高画质",
+	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/jHBfJYmS"))()
+end
+})    
+
+Tab:AddButton({
+  Name = "旋转",
+  Callback = function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/r97d7dS0', true))()
+  end
+})
+
+Tab:AddButton({
+	Name = "转起来",
+	Callback = function()
+      	loadstring(game:HttpGet('https://pastebin.com/raw/r97d7dS0', true))()
+  	end
+})
+
+Tab:AddToggle({
+	Name = "夜视",
+	Default = false,
+	Callback = function(Value)
+		if Value then
+		    game.Lighting.Ambient = Color3.new(1, 1, 1)
+		else
+		    game.Lighting.Ambient = Color3.new(0, 0, 0)
+		end
+	end
+})
+
+Tab:AddButton({
+	Name = "飞车",
+	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/MHE1cbWF"))()
+	end
+})
+
+Tab:AddButton({
+	Name = "爬墙",
+	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+end
+})
+
+Tab:AddButton({
+    Name = "动作",
+    Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Zj4NnKs6"))()
+    end
+})
+
+Tab:AddButton({
+	Name = "电脑键盘",
+	Callback = function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "踏空行走",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Float'))()
+	end
+})
+
+local Tab= Window:MakeTab({
+	Name = "👁玩家👁",
+	Icon = "rbxassetid://93566402708060",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+  Name = "奖励自己",
+  Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/minecrafttotem/yzhs./main/Fe%20pp%20script%20very%20fun"))()
+  end
+})
+
+Tab:AddButton({
+	Name = "无限跳",
+    Default = false,
+	Callback = function(Value)
+loadstring(game:HttpGet("https://pastebin.com/raw/V5PQy3y0", true))()
+	end
+})
+
+Tab:AddTextbox({
+	Name = "跳跃高度设置",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end
+})
+
+Tab:AddTextbox({
+名称="移动速度设置",
+默认值="",
+TextDisappear = true,
+回调=函数(值)
+游戏。players . local player . character . humanoid . walk speed = Value
+结束
+})
+
+Tab:AddTextbox({
+名称="重力设置",
+默认值="",
+TextDisappear = true,
+回调=函数(值)
+游戏。工作空间。重力=值
+结束
+})
+
+Tab:AddToggle({
+	Name = "穿墙",
+默认值=假,
+回调=函数(值)
+如果值则
+Noclip = true
+		    Stepped = game.RunService.Stepped:Connect(function()
+如果Noclip == true，则
+对于一个,b成对(游戏。Workspace:GetChildren()) do
+如果b.Name == game。玩家.本地玩家.名字
+因为我,v成对(游戏。工作空间[游戏。玩家.本地玩家.姓名]:GetChildren()) do
+如果v:IsA("基础零件")然后呢
+动词 （verb的缩写）CanCollide = false
+结束
+结束
+结束
+结束
+其他
+步进式:断开()
+结束
+		    end)
+	    else
+Noclip = false
+结束
+结束
+})
