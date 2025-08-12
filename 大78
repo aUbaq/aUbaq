@@ -1,0 +1,102 @@
+Folder = game.Players.LocalPlayer.PlayerGui
+script = instance . new(“local script”)
+
+本地a、b、c、d、e、f、g、h、I、j、k、l、m、n、o、p、q、r、s、t、u、v、w、x、y、z
+本地A，B，C，D，F，E，G，H，I，J，K，L，M，N，O，P，Q，R，S，T，U，V，W，X，Y，Z
+地方Aa、Ba、Ca、Da、Fa、Ea、Ga、Ha、Ia、Ja、Ka、La、Ma、Na、Oa、Pa、Qa、Ra、Sa、Ta、Ua、Va、Wa、Xa、Ya、Za
+本地IntroSFX =零
+本地IntroDone，Toggle，taco = false
+本地文件夹，选择，禁止，航路点=零
+local CId = instance . new(" int value ")CId。值= 0
+local LPC id = instance . new(" int value ")LPC id。值= 0
+local SId = instance . new(" int value ")
+希德。值= 0
+local MId = instance . new(" int value ")
+中旬。值= 0
+local MPId = instance . new(" int value ")
+MPId。值= 0
+local GId = instance . new(" int value ")
+GId。值= 0
+local GPId = instance . new(" int value ")
+GPId。值= 0
+local HId = instance . new(" int value ")
+藏起来了。值= 0
+local HPId = instance . new(" int value ")
+HPId。值= 0
+local SDId = instance . new(" int value ")
+SDId。值= 0
+local WId = instance . new(" int value ")WId。value = 0 local WMId = instance . new(" int value ")WMId。value = 0 local LCId = instance . new(" int value ")LCId。value = 0 local TCId = instance . new(" int value ")TCId。value = 0 local MEId = instance . new(" int value ")MEId。value = 1 local MEPId = instance . new(" int value ")MEPId。value = 0 local SkyId = instance . new(" int value ")SkyId。value = 1 local SkypId = instance . new(" int value ")SkypId。value = 0 local TabId = instance . new(" int value ")TabId。值= 0
+local EmptySP = UDim2.new(0，0，0，0)
+本地PrivateServer = false
+
+函数Execute(f)return coroutine . resume(coroutine . create(function()f()end))end
+函数PlaySFX(声音、音量、音高、循环)
+A=Instance.new("声音"，工作空间)
+A.PlayOnRemove = true
+A.SoundId = "rbxassetid://"..声音
+A.体积=体积
+A.音高=音高
+A.循环=循环
+答:播放()
+返回A
+结束
+功能框架(父项、大小、位置)
+B=Instance.new("Frame "，parent)
+B.尺寸=大小
+B.位置=位置
+返回B
+结束
+函数ScrollFrame(parent，Size，Position)B = instance . new(" scrolling frame "，parent)B . Size = Size B . Position = Position B . scroll Barth thickness = 10 return B end
+函数Label(parent，Text，Size，Position，value)C = instance . new(" Text Label "，parent)C . Size = Size C . Position = Position C . Text = Text C . background transparency = 1c . Font = " Legacy " C . Text color 3 = color 3 . new(1，1，1)C . TextStrokeTransparency = 0.5 C . Text wrapped = true if value ~ = nil then if value = = 1 then C . Size = udim 2 . new(1，-10，0，35) end C.Position = UDim2 .value)C . Style = " Custom " C . background color 3 = color 3 . new(0，75/255，150/255)C . background transparency = 0.85 C . BorderSizePixel = 0 valuee.价值=价值。值+ 1结束返回C结束
+function Button(parent，Text，Size，Position，func，value)C = instance . new(" Text Button "，parent)C . Size = Size C . Position = Position C . Text = Text C . Style = " roblox Button " C . Font = " Legacy " C . Text color 3 = color 3 . new(1，1，1)C . Text stroke transparency = 0.5 C . Text wrapped = true C . mouse Button 1 click:connect(function()ypcall(function()plays FX(156785206，0.70func()end)end)if value ~ = nil then if Size = = empty sp then C . Size = udim 2 . new(1，-10，0，35) end C.Position = UDim2.new(0，0，0，35*value。Value) C.Style = "Custom " C . background color 3 = color 3 . new(0，75/255，150/255)C . background transparency = 0.85 C . borders ize pixel = 0值。价值=价值。值+ 1结束返回C结束
+function textBox(parent，Text，Size，Position)C = instance . new(" TextBox ")C . Parent = Parent C . Name = Text C . Text = Text if Text = = " value box " then C . Text = " 0 " end C . Size = Size C . background color 3 = color 3 . new(0，75/255，150/255)C . background transparency = 0.85 C . BorderSizePixel = 0 C . Position = Position C . Text color 3 = color 3 . new(1，1) Cfont size . size 12 C . text wrapped = true return C end letters = { " a "；“b”；“c”；“d”；“e”；“f”；“g”；“h”；“我”；“j”；“k”；“l”；”m”；”n”；“o”；“p”；“问”；”r”；”s”；”t”；“u”；“v”；“w”；”x”；“y”；“z”；" ";":";"/" }
+数字的函数检查(文本框)
+对于i = 1，#字母做
+n = string . find(string . lower(textbox。文本)、字母[i])
+如果n ~=零，那么
+文本框。text = string . sub(string . lower(textbox。文本)，1，n-1)..string . sub(string . lower(textbox。文本)，n+1)
+结束
+结束
+结束
+function NumTextBox(textbox)ypcall(function()Execute(function()wait(0.25)textbox。已更改:connect(function(property)if property = = " Text " then CheckForNumbers(textbox)end end)end)end)end
+function TextUsedButton(parents，name，func，value，type) x=Frame(parents，UDim2.new(1，-10，0，35)，UDim2.new(0，0，0，(35*value。value)))x . background color 3 = color 3 . new(0，75/255，150/255)x . background transparency = 0.85 x . border sizepixel = 0y = TextBox(x，" ValueBox "，UDim2.new(1，-85，0，25)，UDim2.new(0，5，0，5))y . background color 3 = color 3 . new(0，75/255，150/255)y . background transparency = 0.85y . bordernew(1，-75，0，5)，function()if y . Text ~ = " " and type ~ = nil then func()else func()end end)z . background color 3 = color 3 . new(0，75/255，150/255)z . background transparency = 0.85 z . border sizepixel = 0 z . Style = " Custom " if value ~ = nil then value .价值=价值。值+ 1结束返回x结束
+函数TextUsedLabel(parents，name，value，type) x=Frame(parents，UDim2.new(1，-10，0，35)，UDim2.new(0，0，0，(35*value。value)))x . background color 3 = color 3 . new(0，75/255，150/255)x . background transparency = 0.85 x . BorderSizePixel = 0y = TextBox(x，" ValueBox "，UDim2.new(1，-85，0，25)，UDim2.new(0，80，0，5))y . background color 3 = color 3 . new(0，75/255，150/255)y . background transparency = 0.85y5，0，5))z . background color 3 = color 3 . new(0，75/255，150/255)z . background transparency = 0.85 z . borders ize pixel = 0如果value ~= nil则value。价值=价值。值+ 1结束返回x结束
+function ToggleButton(parent，name，func1，func2，value) x=Frame(parent，UDim2.new(1，-10，0，35)，UDim2.new(0，0，0，35*value。value))x . background color 3 = color 3 . new(0，75/255，150/255)x . background transparency = 0.85 z = Label(x，name，UDim2.new(1，-160，0，25)，UDim2.new(0，5，0，5))z . background color 3 = color 3 . new(0，75/255，150/255)z . background transparency = 0.85y = Button(x，" on "，udim 2 . new(newStyle = " Custom " y . Name = " On " g = Button(x，" Off "，UDim2.new(0，-70，0，25)，UDim2.new(1，-5，0，5)，function()func 2()end)g . background transparency = 0.85g . background color 3 = color 3 . new(0，75/255，150/255)g . Style = " Custom " g . Name = " Off " if value ~ = nil then value。价值=价值。值+ 1结束返回x结束
+函数ImageLabel(parent，Image，Size，Position)C = nil C = instance . new(" Image label "，parent) C.Image = "rbxassetid://"..image C . Size = Size C . Position = Position C . background transparency = 1返回C end
+函数ToggleMenu()如果Toggle == true则播放SFX(243152215，0.85，1)E:TweenPosition(udim 2 . new(0.5，-250，-0.5，-175)，" Out "，" Quad "，. 5，true)播放SFX(145487017，0.85，1.1)L:TweenPosition(udim 2 . new(0，0，1，-50)，" Out "，" Quad "，. 25，true) Toggle
+函数AddTab(parent，tabparent，text，cValue)如果cValue ~= nil那么D=Frame(tabparent，UDim2.new(1，0，1，0)，UDim2.new(0，0，0，0))D . Transparency = 1d . BorderSizePixel = 0d . Name = text D . Visible = false如果cValue .value = = 0 then D . Visible = true end instance . new(" int value "，D)。Name = "IsATab" C=Button(parent，text，UDim2.new(1，-10，0，35)，UDim2.new(0，5，0，5+(40*cValue。Value))、函数()for i、v pairs(tab parent:get children())do if v . Name = = text then v . Visible = true else v . Visible = false end end)C . Style = "custom " C . background color 3 = color 3 . new(0，75/255，150/255)C . background transparency = 0.85 C . BorderSizePixel = 0 instance . new(" int value "，C)。Name = "IsATabButton "如果cValue ~= nil，则cValue。值= c值。如果是父级，则值+ 1结束。Parent . class name = = " scrolling frame "然后是parent。Parent.CanvasSize = UDim2.new(0，0，0，5+(40*(cValue。值)))end return D end end
+函数ClearFolder(Folder)如果Folder ~= nil那么for i，v成对(Folder:get children())do v:Remove()end end end
+函数CreateFolder(父，名称)
+C=Instance.new("文件夹"，父级)
+C.名称=名称
+返回C
+结束
+函数AddValue(文件夹，名称)
+如果文件夹~=空，则
+C=Instance.new("StringValue ")
+C.名称=名称
+C.值=名称
+C.父=
+文件夹
+结束
+结束
+函数RemoveValue(文件夹，名称)
+如果文件夹~=空，则
+如果文件夹:FindFirstChild(name) ~= nil，则
+文件夹:FindFirstChild(name):Remove()
+结束
+结束
+结束
+函数验证值(文件夹，名称)
+如果文件夹~=空，则
+如果文件夹:FindFirstChild(name) ~= nil，则
+返回true
+其他
+返回false
+结束
+结束
+结束
+本地鼠标
+function AddHotkey(key，func)鼠标=游戏。Players.LocalPlayer:GetMouse()如果Mouse ~= nil那么Mouse。KeyDown:connect(function(Key)if Key = = string . lower(string . char(Key))then func()end end)else Mouse = game。players . local player:get mouse()end end local STR = ":False "
+function SetPlayerList(parent)clear folder(parent)ypcall(function()for I，v pairs(game。players:get children())do if verify value(Selected，v.Name) then STR = ":正确的" else STR = ":错误的" end C=Button(parent，v.Name..STR，UDim2.new(1，-20，0，35)，UDim2.new(0，5，0，5+(40*(i-1))，function()if verify value(Selected，v . Name)then remove value(Selected，v.Name) else AddValue(Selected，v . Name)end setplayer list(parent)end)C . Style = " Custom " C . background color 3 = color 3 . new(0，75/255，150/255)C . background transparency = 0。如果是父级，则BorderSizePixel = 0。然后是父级。CanvasSize = UDim2.new(0，0，0，5+(40*(i))) end end end) end
+函数SetBannedList(parent)clear folder(parent)for I，v paired(Banned:get children())do C = Button(parent，v.Name，UDim2.new(1，-20，0，35)，UDim2.new(0
