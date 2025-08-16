@@ -1,113 +1,114 @@
-local Orion lib = loadstring(游戏:http get(" https://pastebin。com/raw/VeaMSRZK "))()
-位置LBLG =示例。新大学()屏幕GUI(getParent)
-LBL =实例新(“文本标签（获取父项))
-本地玩家=游戏。玩家。本地玩家
+local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/VeaMSRZK"))()
+local LBLG = Instance.new("ScreenGui", getParent)
+local LBL = Instance.new("TextLabel", getParent)
+local player = game.Players.LocalPlayer
 
-关于LBLG，然后。名称:LBLG
-关于LBLG，，然后。父母=游戏100 .核心几内亚
-ZIndexBehavior = enumerate，然后是zindex行为。
-关于LBLG，然后。启用=真
-名字="LBL "
-英文名:Elemento Padre=LBLG
-LBL .背景色3 =颜色3。new(1，1，1).
-LBL，丹麦背景透明度 = 1
-LBL .边框颜色3 =颜色3。新建(0，0，0)
-位置= UDim2.new(0.75，0，0.010，0)
-LBL，然后size = UDim2.new(0，133，0，30)
-LBL，然后font=enum .字体。关于哥谭半粗体
-LBL，然后。文本 ="测试"
-TextColor3 = Color3.new(155，155，155)
-LBL，则TextScaled = true
-LBL，则TextSize = 14
-LBL，则TextWrapped = true
-LBL，则可见=真
+LBLG.Name = "LBLG"
+LBLG.Parent = game.CoreGui
+LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+LBLG.Enabled = true
+LBL.Name = "LBL"
+LBL.Parent = LBLG
+LBL.BackgroundColor3 = Color3.new(1, 1, 1)
+LBL.BackgroundTransparency = 1
+LBL.BorderColor3 = Color3.new(0, 0, 0)
+LBL.Position = UDim2.new(0.75,0,0.010,0)
+LBL.Size = UDim2.new(0, 133, 0, 30)
+LBL.Font = Enum.Font.GothamSemibold
+LBL.Text = "Test"
+LBL.TextColor3 = Color3.new(155, 155, 155)
+LBL.TextScaled = true
+LBL.TextSize = 14
+LBL.TextWrapped = true
+LBL.Visible = true
 
-位置FpsLabel = LBL
-赫尔芩Ort = game:Obtener Service(“运营服务”)。心跳
-本地最后一次迭代，开始
-FrameUpdateTable = { }
+local FpsLabel = LBL
+local Heartbeat = game:GetService("RunService").Heartbeat
+local LastIteration, Start
+local FrameUpdateTable = { }
 
-本地函数心跳更新()
-LastIteration = tick()
-对于Index = #FrameUpdateTable，1，-1 do
-帧更新表[索引+1]=(帧更新表[索引]> =最后一次迭代-1)和框架更新表[索引]或无
-结束
-帧更新表[1]=最后一次迭代
-本地当前fps =(tick()-Start > = 1且#FrameUpdateTable)或(#帧更新表/(tick()-Start))
-当前fps =当前fps-当前fps % 1
-每秒传输帧数标签。文本=("标准Zeit: ~os.date("%H")~ "时" ~os.date("%M")~ "次数" ~os.date("%S ")
-结束
+local function HeartbeatUpdate()
+	LastIteration = tick()
+	for Index = #FrameUpdateTable, 1, -1 do
+		FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
+	end
+	FrameUpdateTable[1] = LastIteration
+	local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
+	CurrentFPS = CurrentFPS - CurrentFPS % 1
+	FpsLabel.Text = ("标准时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
+end
 
-OrionLib:MakeNotification(
+OrionLib:MakeNotification({
                     Name = "正在开启反挂机请稍等...",
-Content = "Akf开启中...",
-时间= 2
+                    Content = "Akf 开启中...",
+                    Time = 2
                 })     
                 
-local vu = game:GetService("VirtualUser")
-游戏：获取服务("玩家")本地玩家空闲的:连接(函数()
-vu:Button2Down(Vector2.new(0，0)，工作区100 .当前摄像机. CFrame)
-等待(1)
-回调=函数(值)
-结束)
+		local vu = game:GetService("VirtualUser")
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		   wait(1)
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)      
 
 OrionLib:MakeNotification({
-OrionLib:MakeNotification({
-Name = "成功设置速度: "..游戏。玩家。本地玩家。性格。人形的。行走速度.."速度",
-内容= "成功",
-时间= 3
-Start = tick()
-心跳:连接(心跳更新)
-本地窗口= Orion lib:制作窗口({ Name = " KK脚本"，HidePremium = false，SaveConfig =true，IntroText= "加载脚本",配置文件夹= "untitled"})
-local Tab = Window:MakeTab({
-Name = "主页",
-Icon = "rbxassetid://4483345998 "，
-PremiumOnly = false
-})
-
-制表符:添加段落("作者“(KK)
-制表符:添加段落("一个介绍")
-
-
-选项卡:添加按钮({
-Name = "复制群",
-回调=函数()
-设置剪贴板(“您的组是好的。")
-OrionLib:MakeNotification(
-名称=”信息”,
-内容= "复制请在粘贴板中查看",
-时间= 2
+                    Name = "开启成功",
+                    Content = "AKF",
+                    Time = 1
                 })
-结束
+Start = tick()
+Heartbeat:Connect(HeartbeatUpdate)
+local Window = OrionLib:MakeWindow({Name = "KK脚本", HidePremium = false, SaveConfig =true,IntroText="加载脚本", ConfigFolder = "文件存放名"})
+local Tab = Window:MakeTab({
+	Name = "主页",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddParagraph("作者","KK")
+Tab:AddParagraph("一个介绍")
+
+
+Tab:AddButton ({
+	Name = "复制群",
+	Callback = function ()
+	 setclipboard("你的群好了")
+	 OrionLib:MakeNotification({
+                    Name = "信息",
+                    Content = "复制请在粘贴板中查看",
+                    Time = 2
+                })
+	end
 })
 
 local Tab = Window:MakeTab({
-Name = "通用",
-Icon = "rbxassetid://4483345998 "，
-PremiumOnly = false
+	Name = "通用",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
-Tab:AddSlider({ -拉动条
+Tab:AddSlider({
 
-Name = "速度",
+	Name = "速度",
 
-最小值= 16，-最小
+	Min = 16,
 
-最大值= 200，-最大值
+	Max = 200,
 
-默认值= 16，-当兼
-
-Color = Color3.fromRGB(255，255，255)，
+	Default = 16,
+	
+	Color = Color3.fromRGB(255,255,255),
 
 增量= 1，
 
 ValueName = "数值",
 
 回调=函数(值)
-游戏。players . local player . character . humanoid . walk speed = Value
+
+游戏照明Ambient = Color3.new(1，1，1)
 
 结束
 
-})
+游戏照明Ambient = Color3.new(0，0，0)
 Tab:AddSlider({
 
 Name = "跳跃高度",
@@ -116,9 +117,9 @@ Name = "跳跃高度",
 
 最大值= 200，
 
-默认值= 50，
+	Default = 50,
 
-Color = Color3.fromRGB(255，255，255)，
+	Color = Color3.fromRGB(255,255,255),
 
 	Increment = 1,
 
@@ -144,91 +145,92 @@ Tab:AddTextbox({
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 		
 		OrionLib:MakeNotification({
-                    Name = "成功设置速度:  "..game.Players.LocalPlayer.Character.Humanoid.WalkSpeed.."   |速度",
-                    Content = "成功",
-                    Time = 3
+Name = "成功设置速度: "..游戏。玩家. local player . character . humanoid . walk speed.."速度",
+内容= "成功",
+时间= 3
                 })
-	end
+结束
 })
-Tab:AddTextbox({
-	Name = "重力设置",
-	Default = "",
-	TextDisappear = true,
-	Callback = function(Value)
-		game.Workspace.Gravity = Value
+选项卡:添加文本框({
+Name = "重力设置",
+默认= " "，
+TextDisappear = true，
+回调=函数(值)
+游戏。工作空间。重力=值
 		
-		OrionLib:MakeNotification({
-                    Name = "成功设置重力:  "..game.Workspace.Gravity.."   |重力",
-                    Content = "成功",
-                    Time = 3
+OrionLib:MakeNotification({
+Name = "成功设置重力: "..游戏。工作空间。重力.."重力",
+内容= "成功",
+时间= 3
                 })
-	end
+结束
 })
-Tab:AddTextbox({
-	Name = "跳跃高度设置",
-	Default = "",
-	TextDisappear = true,
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+选项卡:添加文本框({
+Name = "跳跃高度设置",
+默认= " "，
+TextDisappear = true，
+回调=函数(值)
+游戏。players . local player . character . humano . jump power = Value
 		
-		OrionLib:MakeNotification({
-                    Name = "成功设置跳跃高度:  "..game.Players.LocalPlayer.Character.Humanoid.WalkSpeed.."   |高度",
-                    Content = "成功",
-                    Time = 3
+OrionLib:MakeNotification({
+Name = "成功设置跳跃高度: "..游戏。玩家. local player . character . humanoid . walk speed.."高度",
+内容= "成功",
+时间= 3
                 })
-	end
+结束
 })
 
 local Section = Tab:AddSection({
-	Name = "以下为通用功能"
+Name = "以下为通用功能"
 })
 
-Tab:AddToggle({
-	Name = "夜视",
-	Default = false,
-	Callback = function(Value)
-		if Value then
+选项卡:添加切换({
+Name = "夜视",
+默认=假，
+回调=函数(值)
+如果值则
 
-		    game.Lighting.Ambient = Color3.new(1, 1, 1)
+游戏照明。Ambient = Color3.new(1，1，1)
 
-		else
+其他
 
-		    game.Lighting.Ambient = Color3.new(0, 0, 0)		    		    
+游戏照明Ambient = Color3.new(0，0，0)
 
-		end
-local Orion lib = loadstring(game:http get(" https://pastebin . com/raw/VeaMSRZK "))()
-local LBLG = instance . new(" screen GUI "，getParent)
+结束
 
-本地玩家=游戏。玩家。本地玩家
-	Name = "穿墙",
-LBLG。Name = "LBLG "
-LBLG。家长=游戏。CoreGui
-LBLG。ZIndexBehavior = Enum。ZIndexBehavior .同胞
-LBLG。启用=真
-LBL。Name = "LBL "
-LBL。Parent = LBLG
-LBL。BackgroundColor3 = Color3.new(1，1，1)
-LBL。BackgroundTransparency = 1
-LBL .BorderColor3 = Color3.new(0，0，0)
-LBL .Position = UDim2.new(0.75，0，0.010，0)
-LBL .Size = UDim2.new(0，133，0，30)
-LBL .Font = Enum .字体。哥谭半粗体
-LBL .Text = "测试"
-LBL .TextColor3 = Color3.new(155，155，155)
-LBL .TextScaled = true
-LBL .TextSize = 14
-LBL .TextWrapped = true
-LBL .可见=真
-结束)
-本地FpsLabel = LBL
-本地心跳= game:获取服务(“运行服务”).心跳
-本地最后一次迭代，开始
-本地FrameUpdateTable = { }
-})
+内容= "AKF "，
+时间= 1
+
+Start = tick()
+心跳:连接(心跳更新)
+本地窗口= Orion lib:制作窗口({ Name = " KK脚本"，HidePremium = false，SaveConfig =true，IntroText= "加载脚本",配置文件夹= "文件存放名"})
+local Tab = Window:MakeTab({
+Name = "主页",
+Icon = "rbxassetid://4483345998 "，
+PremiumOnly = false
+Name = "以下为通用功能"
+增量= 1，
+制表符:添加段落("作者”、“KK”)
+制表符:添加段落("一个介绍")
+如果v:IsA("BasePart ")，那么
+回调=函数(值)
+选项卡:添加按钮({
+Name = "复制群",
+回调=函数()
+setclipboard("你的群好了")
+OrionLib:MakeNotification({
+Name = "信息",
+内容= "复制请在粘贴板中查看",
+时间= 2
+Name = "移动速度设置",
+结束
+默认= " "，
+默认值= 50，
+local Tab = Window:MakeTab({
 
 选项卡:添加按钮({
-对于Index = #FrameUpdateTable，1，-1 do
-Callback = function() -再次新建类
+名称=”姓名”,
+回调=函数()
 
 结束
 })
