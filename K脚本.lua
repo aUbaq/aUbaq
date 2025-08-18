@@ -7,7 +7,7 @@ CoreGui:SetCore("SendNotification", {
     Duration = 10, --时间
 })
 
-local library = loadstring(game:HttpGet('https://pastebin.com/raw/SePpsSPZ'))()
+local library = https://raw.githubusercontent.com/odhdshhe/wumin/refs/heads/main/Protected_9292296694365778.txt
 local window = library:new("K脚本")
 local creds = window:Tab("使用脚本必看♥",'16060333448')
 
