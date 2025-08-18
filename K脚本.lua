@@ -7,7 +7,7 @@ CoreGui:SetCore("SendNotification", {
     Duration = 10, --时间
 })
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/odhdshhe/wumin/refs/heads/main/Protected_9292296694365778.txt"))()
+local library = loadstring(game:HttpGet('https://pastebin.com/raw/SePpsSPZ'))()
 local window = library:new("K脚本")
 local creds = window:Tab("使用脚本必看♥",'16060333448')
 
@@ -18,7 +18,7 @@ local bin = creds:section("玩家信息",true)
     
     local bin = creds:section("关于的脚本和作者的信息😖",true)
     bin:Label("永久免费😀")
-    bin:Label("大群：320578893")
+    bin:Label("大群：无")
     bin:Label("主作者:KK")
     bin:Label("副作者：277😎😎😎😎😎")
     bin:Label("除了俄亥俄州其他服务器都支持")
